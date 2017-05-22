@@ -1,15 +1,32 @@
 <template>
 	<div id="app" class="container">
-		Hello World
+		<h1>Hello World</h1>
+		<p>
+			<el-button @click.native="startHacking">Notification test</el-button>
+		</p>
 	</div>
 </template>
 
 <script>
+	export default {
+		methods: {
+			startHacking () {
+				this.$notify({
+				title: 'It Works',
+				message: 'Ok! Element-UI works fine, now I can move on to different shit :)',
+				duration: 6000
+				})
+			}
+		}
+	}
 </script>
 
 <style>
-#app {
+body {
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+#app {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
