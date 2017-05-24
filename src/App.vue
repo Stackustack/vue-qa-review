@@ -2,8 +2,13 @@
 	<div id="app">
 		<app-header></app-header>
 		<el-row :gutter="5">
-			<app-sidebar></app-sidebar>
-			<app-core></app-core>
+			<el-col :span="4">
+				<app-sidebar></app-sidebar>
+			</el-col>
+
+			<el-col :span="20">
+				<app-core></app-core>
+			</el-col>
 		</el-row>
 	</div>
 </template>
