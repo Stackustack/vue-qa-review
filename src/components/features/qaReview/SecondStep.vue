@@ -1,0 +1,3 @@
+<template>
+  SECOND STEP
+</template>

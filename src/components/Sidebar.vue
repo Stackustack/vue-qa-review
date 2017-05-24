@@ -1,5 +1,5 @@
 <template>
-	<div class="grid-content">
+	<div class="sidebar">
 		<el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
 			<el-submenu index="1">
 				<template slot="title">
@@ -33,8 +33,30 @@
 					<el-menu-item index="1-1">Krakow</el-menu-item>
 				</el-menu-item-group>
 			</el-submenu>
-			<el-menu-item index="3"><i class="el-icon-information"></i>Contact me</el-menu-item>
-			<el-menu-item index="4"><i class="el-icon-more"></i>Funny dogs xD</el-menu-item>
+			<el-menu-item index="3">
+				<router-link 
+					to="/contact-me/why-the-heck-would-u-like-to-contact-me-anyways/you-creep/xDDDDD" 
+					tag="li">
+						<i class="el-icon-information"></i>Contact me
+				</router-link>
+			</el-menu-item>
+			<el-menu-item index="4">
+				<router-link 
+					to="/funny-dogs" 
+					tag="li">
+						<i class="el-icon-more"></i>Funny dogs xD
+				</router-link>
+			</el-menu-item>
 		</el-menu>	
 	</div>
 </template>
+
+<style>
+	.sidebar {
+		border-radius: 2px;
+		background-color: #EFF2F7;
+	}
+</style>
+
+
+
