@@ -58,7 +58,7 @@
 				</template>
 			</el-table-column>
 		</el-table>
-		<app-action-buttons></app-action-buttons>
+		<app-action-buttons :devicesSelected="devicesSelected"></app-action-buttons>
     </div> 
 </template>
 
