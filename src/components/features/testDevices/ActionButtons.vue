@@ -7,7 +7,7 @@
 			  	<el-button 
 				  size="large" 
 				  type="primary"
-				  @click="reserveDevices">Reserve Selected Devices</el-button>
+				  @click="reserveDevices">{{ reserveDevicesButtonText }}</el-button>
 			</el-col>
 
 			<el-col
@@ -22,6 +22,11 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				// FOR TESTING PURPOSES
+			}
+		},
 		props: [
 			'devicesSelected'
 		],
@@ -33,6 +38,21 @@
 			resyncDevicesList() {
 				// TODO
 				console.log('function call: resyncDevices')
+			},
+			countDevices() {
+				return this.devicesSelected.length
+			}
+		},
+		computed: {
+			reserveDevicesButtonText() {
+				if (this.devicesSelected.length == 0) {
+					return "Select Devices First :)"
+				} else if (this.devicesSelected.length == 1) {
+					return "Reserve Selected Device"
+				} else if (this.devicesSelected.length > 1) {
+					const count = this.countDevices()
+					return "Reserve " + count + " Selected Devices"
+				}
 			}
 		}
 	}
