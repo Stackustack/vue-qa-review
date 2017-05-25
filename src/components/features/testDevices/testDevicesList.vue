@@ -3,7 +3,8 @@
 		<el-table
     		:data="devices"
     		stripe
-    		style="width: 100%">
+    		style="width: 100%"
+			@selection-change="handleSelectionChange">
 			<el-table-column
 			    header-align="center"
 				type="selection"
@@ -68,7 +69,8 @@
     export default {
 		data() {
 			return {
-				devices: importedDevices
+				devices: importedDevices,
+				devicesSelected: []
 			}
 		},
 		components: {
@@ -87,6 +89,9 @@
 					message: 'Click a Device to reserve it! :)',
 					duration: 6000
 				});
+			},
+			handleSelectionChange(selection) {
+				this.devicesSelected = selection
 			}
 		},
 		created() {
