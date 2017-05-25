@@ -4,11 +4,16 @@
     		:data="devices"
     		stripe
     		style="width: 100%">
+			<el-table-column
+			    header-align="center"
+				type="selection"
+				width="50">
+			</el-table-column>
     		<el-table-column
       			header-align="center"
 				prop="index"
-				label="Testing Device Code"
-				width="200">
+				label="Device Code"
+				width="120">
 			</el-table-column>
 			
 			<el-table-column
@@ -16,7 +21,8 @@
 				:filter-method="filterByBrand"
 				header-align="center"
 				prop="brand"
-				label="Brand">
+				label="Brand"
+				width="180">
 			</el-table-column>
 
 			<el-table-column
@@ -30,7 +36,8 @@
 				:filter-method="filterByAndroidVersion"
 				header-align="center"  
 				prop="androidVersion"
-				label="Android version">
+				label="Android"
+				width="140">
 			</el-table-column>
 
 			<el-table-column
@@ -50,10 +57,12 @@
 				</template>
 			</el-table-column>
 		</el-table>
+		<app-action-buttons></app-action-buttons>
     </div> 
 </template>
 
 <script>
+	import appActionButtons from './ActionButtons.vue'
 	import importedDevices from './data.js'
 
     export default {
@@ -61,6 +70,9 @@
 			return {
 				devices: importedDevices
 			}
+		},
+		components: {
+			appActionButtons
 		},
 		methods: {
 			filterByAndroidVersion(value, row) {
@@ -72,9 +84,9 @@
 			startInfoMessage() {
 				this.$notify.info({
 					title: 'Small tip for you, my friend!',
-					message: 'Click a Device to reserve it! :)'
+					message: 'Click a Device to reserve it! :)',
+					duration: 6000
 				});
-				console.log('shotsfired')
 			}
 		},
 		created() {

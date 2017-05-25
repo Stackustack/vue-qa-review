@@ -1,3 +1,5 @@
 <template>
-  SECOND STEP
+	<div>
+		SECOND STEP
+	</div>
 </template>

@@ -24,15 +24,19 @@
 					<el-menu-item index="1-10">Summary</el-menu-item>
 				</el-menu-item-group>
 			</el-submenu>
+
 			<el-submenu index="2">
 				<template slot="title"><i class="el-icon-menu"></i>Testing Devices</template>
 				<el-menu-item-group title="List of devices in...">
-					<el-menu-item index="1-1">Poznan</el-menu-item>
-					<el-menu-item index="1-1">Warsaw</el-menu-item>
-					<el-menu-item index="1-1">Gdansk</el-menu-item>
-					<el-menu-item index="1-1">Krakow</el-menu-item>
+					<router-link
+						to="/testing_devices/poznan"
+						tag="li">
+						<el-menu-item index="2-1">Poznan</el-menu-item>
+					</router-link>
+					<el-menu-item index="2-2">More to come :)</el-menu-item>
 				</el-menu-item-group>
 			</el-submenu>
+
 			<el-menu-item index="3">
 				<router-link 
 					to="/contact-me/why-the-heck-would-u-like-to-contact-me-anyways/you-creep/xDDDDD" 
@@ -40,6 +44,7 @@
 						<i class="el-icon-information"></i>Contact me
 				</router-link>
 			</el-menu-item>
+
 			<el-menu-item index="4">
 				<router-link 
 					to="/funny-dogs" 
@@ -50,6 +55,20 @@
 		</el-menu>	
 	</div>
 </template>
+
+<<script>
+	export default {
+		methods: {
+			handleOpen() {
+				// TODO
+			},
+			handleClose() {
+				// TODO
+			}
+		}
+	}
+</script>
+
 
 <style>
 	.sidebar {
