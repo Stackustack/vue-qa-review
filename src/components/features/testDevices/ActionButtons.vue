@@ -1,17 +1,15 @@
 <template>
 	<div>
 		<el-row :gutter="20" id="buttonsContainer">
-  			<el-col 
-			  :span="6"
-			  :offset="7">
-			  	<el-button 
-				  size="large" 
-				  type="primary"
-				  @click="reserveDevices">{{ reserveDevicesButtonText }}</el-button>
+  			<el-col :span="6" :offset="7">
+				<el-button 
+					size="large" 
+					type="primary"
+					@click="reserveDevices"
+					:disabled="isSelectionEmpty()">{{ reserveDevicesButtonText }}</el-button>
 			</el-col>
 
-			<el-col
-				:span="3">
+			<el-col :span="3">
 				<el-button 
 					size="large"
 					@click="resyncDevicesList">Resync</el-button>
@@ -22,11 +20,6 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				// FOR TESTING PURPOSES
-			}
-		},
 		props: [
 			'devicesSelected'
 		],
@@ -41,16 +34,19 @@
 			},
 			countDevices() {
 				return this.devicesSelected.length
+			},
+			isSelectionEmpty() {
+				return (this.countDevices() == 0) ?  true : false
 			}
 		},
 		computed: {
 			reserveDevicesButtonText() {
-				if (this.devicesSelected.length == 0) {
+				const count = this.devicesSelected.length
+				if (count == 0) {
 					return "Select Devices First :)"
-				} else if (this.devicesSelected.length == 1) {
+				} else if (count == 1) {
 					return "Reserve Selected Device"
-				} else if (this.devicesSelected.length > 1) {
-					const count = this.countDevices()
+				} else if (count > 1) {
 					return "Reserve " + count + " Selected Devices"
 				}
 			}
