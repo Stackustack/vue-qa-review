@@ -9,6 +9,14 @@
 
 ## Build Setup
 
+### Firebase keys configuration
+
+Copy sample file with Firebase keys and fill them with your data
+
+``` bash
+cp src/secrets.jsml.sample src/secrets.yml
+```
+
 ``` bash
 # install dependencies
 npm install
@@ -19,5 +27,6 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
