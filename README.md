@@ -17,6 +17,8 @@ Copy sample file with Firebase keys and fill them with your data
 cp src/secrets.jsml.sample src/secrets.yml
 ```
 
+### Install the NPM dependencies and start having fun
+
 ``` bash
 # install dependencies
 npm install
