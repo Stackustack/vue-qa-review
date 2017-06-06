@@ -3,5 +3,5 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
-src/secrets.js
+src/config/firebase.js
 .vscode

@@ -18,7 +18,9 @@
 			</el-table-column>
 			
 			<el-table-column
-				:filters="[{ text: 'Samsung', value: 'Samsung' }, { text: 'LG', value: 'LG' }]"
+				:filters="[
+					{ text: 'Samsung', value: 'Samsung' }, 
+					{ text: 'LG', value: 'LG' }]"
 				:filter-method="filterByBrand"
 				header-align="center"
 				prop="brand"
@@ -33,7 +35,9 @@
 			</el-table-column>
 
 			<el-table-column
-				:filters="[{ text: '4.4.2', value: '4.4.2' }, { text: '5.0.0', value: '5.0.0' }]"
+				:filters="[
+					{ text: '4.4.2', value: '4.4.2' }, 
+					{ text: '5.0.0', value: '5.0.0' }]"
 				:filter-method="filterByAndroidVersion"
 				header-align="center"  
 				prop="androidVersion"
@@ -53,8 +57,9 @@
 				label="Status">
 				<template scope="scope">
 					<el-tag
-					:type="scope.row.status === 'Available' ? 'primary' : 'danger'"
-					close-transition>{{scope.row.status}}</el-tag>
+						:type="scope.row.status === 'Available' ? 'primary' : 'danger'"
+						close-transition>{{scope.row.status}}
+					</el-tag>
 				</template>
 			</el-table-column>
 		</el-table>
@@ -64,13 +69,21 @@
 
 <script>
 	import appActionButtons from './ActionButtons.vue'
-	import importedDevices from './data.js'
+	import { db } from '../../../config/firebase.js'
 
     export default {
 		data() {
 			return {
-				devices: importedDevices,
-				devicesSelected: []
+				devicesSelected: [],
+				devices: {}
+			}
+		},
+		firebase: {
+			devices: {
+				source: db.ref('devices'),
+				cancelCallback(err) {
+        			console.error(err);
+    			}
 			}
 		},
 		components: {
